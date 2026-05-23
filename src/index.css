@@ -1,135 +1,134 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: black;
+  background-color: #0f172a;
   color: white;
-  font-family: cera-round-pro, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ================= NAVBAR ================= */
 
 .nav_bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: blueviolet; */
-  padding: 10px;
-  gap: 1.5rem;
-  font-size: 20px;
+  gap: 1rem;
+  padding: 15px;
   position: sticky;
-  top:0px ;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+.logo,
+.seller,
+.search {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 14px;
 }
 
 .logo {
   width: 15%;
-  padding: 15px;
-  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
 }
 
 .seller {
   width: 15%;
-  padding: 15px;
-  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.seller:hover {
+  transform: scale(1.03);
 }
 
 .search {
   width: calc(100% - 35%);
-  padding: 15px;
-  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.search .left,
+.search .right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ================= LAYOUT ================= */
+
 .container {
   display: flex;
-  justify-content: space-between;
-  padding: 15px;
   gap: 20px;
+  padding: 15px;
 }
+
+/* ================= SIDEBAR ================= */
+
 .side_bar {
   width: 15%;
-  height: 80vh;
-  border-radius: 10px;
+  height: 85vh;
   position: sticky;
   top: 90px;
 }
 
-.post_section {
-  width: calc(100% - 34%);
-}
-
-.right_bar {
-  width: 17%;
-  max-height: 80vh;
-  overflow: scroll;
-  border-radius: 10px; 
-  position: sticky;
-  top: 90px;
-}
-
-.right_bar::-webkit-scrollbar{
-  display: none;
-}
-/* sidebar css */
 .side_bar_content {
-  height:80vh;
+  height: 100%;
+  background: #1e293b;
+  border-radius: 15px;
+  padding: 10px;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  border-radius: 10px;
+  justify-content: space-between;
 }
 
 .side_bar_content .items {
-  padding: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.side_bar_content .items:hover {
+  background-color: #334155;
 }
 
 .side_bar_content .items .icons {
   margin-right: 10px;
 }
 
-.post_container .author .img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* ================= POST SECTION ================= */
+
+.post_section {
+  width: calc(100% - 34%);
 }
 
 .post_container {
+  background: #1e293b;
+  border-radius: 16px;
   padding: 20px;
+  margin-bottom: 25px;
   display: flex;
-  justify-content: center;
-  /* align-items: center; */
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 30px;
-  border-radius: 10px;
-}
-.post_img{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.post_img img{
-  height: 300px;
-  width: 800px;
-  border-radius: 10px;
-  border: 1px solid aqua;
+  border: 1px solid #334155;
+  transition: 0.3s;
 }
 
-.post_container .author .img img {
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  border: 2px solid yellow;
-
-}
-
-.author {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+.post_container:hover {
+  transform: translateY(-3px);
 }
 
 .person {
@@ -137,21 +136,65 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.like_comment{
+
+.author {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 10px;
-}
-.like_comment .items{
-  margin-right: 10px;
 }
 
-.right_container{
-  padding: 10px;
+.post_container .author .img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid aqua;
+  object-fit: cover;
 }
+
+.post_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post_img img {
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 1px solid aqua;
+}
+
+.like_comment {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 10px;
+}
+
+.like_comment .items {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ================= RIGHT BAR ================= */
+
+.right_bar {
+  width: 17%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 90px;
+}
+
+.right_bar::-webkit-scrollbar {
+  display: none;
+}
+
 .right_container {
-  padding: 10px;
+  margin-bottom: 15px;
 }
 
 .right_container .postImg {
@@ -159,37 +202,113 @@ body {
 }
 
 .right_container .postImg #_img {
-  width: 180px;
-  height: 120px;
-  border-radius: 10px;
+  width: 100%;
+  height: 140px;
+  border-radius: 14px;
+  object-fit: cover;
   border: 1px solid aqua;
 }
 
 .right_container .inside_img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-   gap: 10px;
   position: absolute;
   bottom: 10px;
   left: 10px;
-}
-
-.right_container .inside_img .img {
   display: flex;
-  justify-content: center;
   align-items: center;
- 
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 10px;
+  border-radius: 10px;
 }
 
 .right_container .inside_img .img img {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
   border: 2px solid yellow;
+  object-fit: cover;
 }
-.logo{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+
+.right_container .text h3 {
+  font-size: 14px;
+}
+
+.right_container .text p {
+  font-size: 12px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .side_bar {
+    display: none;
+  }
+
+  .right_bar {
+    display: none;
+  }
+
+  .post_section {
+    width: 100%;
+  }
+
+  .logo {
+    width: 25%;
+  }
+
+  .seller {
+    display: none;
+  }
+
+  .search {
+    width: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav_bar {
+    flex-direction: column;
+  }
+
+  .logo,
+  .search,
+  .seller {
+    width: 100%;
+  }
+
+  .post_img img {
+    height: 250px;
+  }
+
+  .author {
+    align-items: flex-start;
+  }
+
+  .person {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .like_comment {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 500px) {
+  .post_img img {
+    height: 200px;
+  }
+
+  .post_container {
+    padding: 15px;
+  }
+
+  .nav_bar {
+    padding: 10px;
+  }
+
+  .container {
+    padding: 10px;
+  }
 }
